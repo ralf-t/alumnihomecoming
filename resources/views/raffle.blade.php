@@ -6,6 +6,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+<<<<<<< HEAD
 	<meta name="interface" content="desktop" />
 
 	<title>Slots</title>
@@ -39,6 +40,18 @@
 			</div>
 			<div id="buttons">
 				<div id="play" class="button button-default">Play</div>	  
+=======
+@section('body')
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-lg-5 vh-100">
+			<div id="reels">
+				<!-- <canvas id="digit1"></canvas>
+				<canvas id="digit2"></canvas>
+				<canvas id="digit3"></canvas>
+				<canvas id="digit4"></canvas> -->
+				<div id="winline"></div>
+>>>>>>> cd8740f8d0c8f1048ab13674d09b8492b45cbe47
 			</div>
 		</div>
 	</div>
