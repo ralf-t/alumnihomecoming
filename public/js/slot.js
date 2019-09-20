@@ -128,15 +128,29 @@ function SlotGame() {
 
   $(document).on('keypress', function(e) {
   	if(e.which == 13) {
-  		$('h1').text('Rolling!');
-  		game.restart();
+  		if (guests.length == 0) {
+  			$('#results').show();
+  			$('#multiplier').text('----');
+  			$('#status').text('NO MORE GUESTS');
+  			$('#name').text('AVAILABLE');
+  		} else {
+  			$('h1').text('Rolling!');
+  			game.restart();
+  		}
   	}
   });
 
   $('#play').click(function(e) {
 		// start game on play button click
-		$('h1').text('Rolling!');
-		game.restart();
+		if (guests.length == 0) {
+			$('#results').show();
+			$('#multiplier').text('----');
+			$('#status').text('NO MORE GUESTS');
+			$('#name').text('AVAILABLE');
+		} else {
+			$('h1').text('Rolling!');
+			game.restart();
+		}
 	});
 
   // Show reels for debugging
