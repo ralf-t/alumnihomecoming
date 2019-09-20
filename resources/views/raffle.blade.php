@@ -19,18 +19,17 @@
 				<h3>Play and Win</h3>
 			</div>
 			<div id="reels">
-				<canvas id="canvas1" width="70" height="300"></canvas>
-				<canvas id="canvas2" width="70" height="300"></canvas>
-				<canvas id="canvas3" width="70" height="300"></canvas>
-				<canvas id="canvas4" width="70" height="300"></canvas>
-				<div id="overlay">
-					<div id="winline"></div>
-				</div>
+				<div id="winline"></div>
+				<canvas id="canvas1" width="100" height="300"></canvas>
+				<canvas id="canvas2" width="100" height="300"></canvas>
+				<canvas id="canvas3" width="100" height="300"></canvas>
+				<canvas id="canvas4" width="100" height="300"></canvas>
 				<div id="results">
 					<div id="score">
 						<span id="multiplier"></span>
 					</div>
 					<div id="status"></div>
+					<div id="name"></div>
 				</div>
 			</div>
 			<div id="buttons">

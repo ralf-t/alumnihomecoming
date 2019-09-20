@@ -1,4 +1,4 @@
-var IMAGE_HEIGHT = 64;
+var IMAGE_HEIGHT = 100;
 var IMAGE_TOP_MARGIN = 5;
 var IMAGE_BOTTOM_MARGIN = 5;
 var SLOT_SEPARATOR_HEIGHT = 2
@@ -6,10 +6,11 @@ var SLOT_HEIGHT = IMAGE_HEIGHT + IMAGE_TOP_MARGIN + IMAGE_BOTTOM_MARGIN + SLOT_S
 var RUNTIME = 2000; // how long all slots spin before starting countdown
 var SPINTIME = 1000; // how long each slot spins at minimum
 var ITEM_COUNT = 10 // item count in slots
-var SLOT_SPEED = 15; // how many pixels per second slots roll
-var DRAW_OFFSET = 45 // how much draw offset in slot display from top
+var SLOT_SPEED = 20; // how many pixels per second slots roll
+var DRAW_OFFSET = 100 // how much draw offset in slot display from top
 
-var guests = [101, 102, 203, 204, 305, 306, 407, 408, 509, 510];
+var guests = [101, 102, 103, 104, 105];
+alert('Guests ID' + guests);
 var winners = [];
 var comments = ['Prizes and Surprises!', 'Look out for more Prizes!', 'Merry Christmas!', 
 'Look at your Number!', 'Take care of your prizes!', 'Shoutout to the R&D!',
@@ -213,7 +214,6 @@ Game.prototype.restart = function() {
 	if (index > -1) {
 		guests.splice(index, 1);
 	}
-	alert('Guests ID: ' + guests);
 
 	// Gets digit of guest_winner
 	var digit1 = guest_winner / 1000;
@@ -332,25 +332,43 @@ Game.prototype.update = function() {
     case 3: // slot 1 stopped, slot 2
     this.stopped2 = _check_slot( this.offset2, this.result2 );
     if ( this.stopped2 ) {
+    	this.speed3 = this.speed2;
+    	this.speed4 = this.speed2;
     	this.speed2 = 0;
     	this.state++;
     	this.lastUpdate = now;
+    } else {
+    	if (this.speed2 > 13) {
+    		this.speed2 --;
+    		this.speed3 = this.speed2;
+    		this.speed4 = this.speed2;
+    	}
     }
     break;
 
     case 4: // slot 2 stopped, slot 3
     this.stopped3 = _check_slot( this.offset3, this.result3 );
     if ( this.stopped3 ) {
+    	this.speed4 = this.speed3;
     	this.speed3 = 0;
     	this.state++;
+    } else {
+    	if (this.speed3 > 11) {
+    		this.speed3 --;
+    		this.speed4 = this.speed3;
+    	}
     }
     break;
 
-    case 5: // slot 2 stopped, slot 3
+    case 5: // slot 3 stopped, slot 4
     this.stopped4 = _check_slot( this.offset4, this.result4 );
     if ( this.stopped4 ) {
     	this.speed4 = 0;
     	this.state++;
+    } else {
+    	if (this.speed4 > 9) {
+    		this.speed4 --;
+    	}
     }
     break;
 
@@ -363,17 +381,18 @@ Game.prototype.update = function() {
     case 7: // check results
     var guest_id = 0;
 
-    $('#results').show();
     guest_id = 1000 * parseInt(that.items1[that.result1].id);
     guest_id += 100 * parseInt(that.items2[that.result2].id);
     guest_id += 10 * parseInt(that.items3[that.result3].id);
     guest_id += parseInt(that.items4[that.result4].id);
 
-    alert(comment_index);
+    setTimeout($('#results').show(), 6000);
     $('#header').find('h1').text(comments[comment_index]);
     $('#multiplier').text(guest_id);
+    $('#name').text('<Insert Name>');
     $('#status').text('CONGRATULATIONS!');
     this.state = 8;
+    alert('Guests ID: ' + guests);
     break;
 
     case 8: // game ends
