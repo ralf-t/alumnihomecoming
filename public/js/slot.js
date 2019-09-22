@@ -10,7 +10,6 @@ var SLOT_SPEED = 20; // how many pixels per second slots roll
 var DRAW_OFFSET = 100 // how much draw offset in slot display from top
 
 var guests = [101, 102, 103, 104, 105];
-alert('Guests ID' + guests);
 var winners = [];
 var comments = ['Prizes and Surprises!', 'Look out for more Prizes!', 'Merry Christmas!', 
 'Look at your Number!', 'Take care of your prizes!', 'Shoutout to the R&D!',
@@ -346,31 +345,18 @@ Game.prototype.update = function() {
     case 3: // slot 1 stopped, slot 2
     this.stopped2 = _check_slot( this.offset2, this.result2 );
     if ( this.stopped2 ) {
-    	this.speed3 = this.speed2;
-    	this.speed4 = this.speed2;
     	this.speed2 = 0;
     	this.state++;
     	this.lastUpdate = now;
-    } else {
-    	if (this.speed2 > 13) {
-    		this.speed2 --;
-    		this.speed3 = this.speed2;
-    		this.speed4 = this.speed2;
-    	}
     }
     break;
 
     case 4: // slot 2 stopped, slot 3
     this.stopped3 = _check_slot( this.offset3, this.result3 );
+    this.speed4 = this.speed3;
     if ( this.stopped3 ) {
-    	this.speed4 = this.speed3;
     	this.speed3 = 0;
     	this.state++;
-    } else {
-    	if (this.speed3 > 11) {
-    		this.speed3 --;
-    		this.speed4 = this.speed3;
-    	}
     }
     break;
 
@@ -379,10 +365,6 @@ Game.prototype.update = function() {
     if ( this.stopped4 ) {
     	this.speed4 = 0;
     	this.state++;
-    } else {
-    	if (this.speed4 > 9) {
-    		this.speed4 --;
-    	}
     }
     break;
 
@@ -406,7 +388,6 @@ Game.prototype.update = function() {
     $('#name').text('<Insert Name>');
     $('#status').text('CONGRATULATIONS!');
     this.state = 8;
-    alert('Guests ID: ' + guests);
     break;
 
     case 8: // game ends
