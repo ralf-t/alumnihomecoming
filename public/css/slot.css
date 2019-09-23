@@ -42,7 +42,7 @@ html, body
 #container
 {
   position:absolute;
-  width: 450px;
+  width: 650px;
   height: 340px;
   left: 50%;
   top: 50%;
@@ -60,7 +60,8 @@ html, body
 #container #header
 {
   text-align: center;
-  margin-top: -80px;
+  margin-top: -100px;
+  margin-left: -27%;
 }
 
 #container #header h1
@@ -89,7 +90,7 @@ html, body
   position:relative;
   margin-top: 20px;
   bottom:10px;
-  left:0px;
+  left:-14%;
   right:30px;
   text-align: center;
   height: 40px;
@@ -103,9 +104,9 @@ html, body
 {
   display:block;
   position:relative;
-  width: 750px;
+  width: 1050px;
   height: 350px;
-  margin-left: -155px;
+  margin-left: -300px;
   overflow: hidden;
   text-align: center;
   background:#000;
@@ -117,7 +118,7 @@ html, body
 
 #container #reels canvas
 {
-  width: 125px;
+  width: 200px;
   height: 300px;
   position: relative;
   background: white;
@@ -152,7 +153,7 @@ html, body
     background: white;
     border: 3px solid gold;
     height: 320px;
-    width: 575px;
+    width: 875px;
     left: 85px;
     top: 15px;
     position: absolute;

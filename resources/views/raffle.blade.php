@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="interface" content="desktop" />
-	<title>Slots</title>
+	<title>Alumni Homecoming Raffle</title>
 	<link href="https://fonts.googleapis.com/css?family=Lora|Manjari&display=swap" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="{{ asset('css/reset.css') }}" />
 	<link type="text/css" rel="stylesheet" href="{{ asset('css/slot.css') }}" />
@@ -16,15 +16,15 @@
 	<div id="viewport">
 		<div id="container">
 			<div id="header">
-				<h1>Slots Machine</h1>
+				<h1>Slot Machine</h1>
 				<h3>Play and Win</h3>
 			</div>
 			<div id="reels">
 				<div id="winline"></div>
-				<canvas id="canvas1" width="100" height="300"></canvas>
-				<canvas id="canvas2" width="100" height="300"></canvas>
-				<canvas id="canvas3" width="100" height="300"></canvas>
-				<canvas id="canvas4" width="100" height="300"></canvas>
+				<canvas id="canvas1" width="160" height="300"></canvas>
+				<canvas id="canvas2" width="160" height="300"></canvas>
+				<canvas id="canvas3" width="160" height="300"></canvas>
+				<canvas id="canvas4" width="160" height="300"></canvas>
 				<div id="results">
 					<div id="score">
 						<span id="multiplier"></span>
