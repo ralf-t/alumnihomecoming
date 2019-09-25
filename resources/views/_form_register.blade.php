@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" onsubmit="return Confirm()">
 	{{ csrf_field() }}
 	<div class="container-fluid px-0">
 		<div class="row justify-content-center">
@@ -28,6 +28,6 @@
 				<input type="text" class="form-control" id="ticket" name="ticket_no" required>
 			</div>
 		</div>
-		<button class="btn reg form-control">Register</button>
+		<button class="btn reg form-control" id="submit">Register</button>
 	</div>
 </form>

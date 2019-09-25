@@ -1,6 +1,5 @@
-*{
+* {
   color: #e74c3c;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body {
@@ -11,6 +10,7 @@ html, body {
   background-attachment: fixed;
   max-height: 100vh;
   background-size: contain;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #ui {
@@ -85,6 +85,10 @@ option {
   font-weight: 200;
 }
 
+a#submit {
+  color: #ecf0f1;
+}
+
 .reg{
   background-color: #b33939;
   border-radius: 0 0 14px 14px;
@@ -97,23 +101,4 @@ option {
 .reg:hover{
   color: #ecf0f1;
   background-color: #8f3030;
-}
-
-#privacyDetails ,.modal-body p{
-  color: #2d3436;
-}
-
-#privacyDetails {
-  color: #c0392b;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-b {
-  color:#e74c3c;
-}
-
-.text-muted {
-  font-weight: 400;
 }
