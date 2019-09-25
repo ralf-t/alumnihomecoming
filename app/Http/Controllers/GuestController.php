@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Guest;
 
 class GuestController extends Controller
 {
@@ -11,9 +12,21 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard');
+        if (!$request->ajax()){
+            $tickets = Guest::table('guests')
+            ->select('ticket_no')
+            ->where('raffle', '=', 1)
+            ->get();
+            return $tickets;
+        } else {
+            $tickets = Guest::table('guests')
+            ->select('ticket_no')
+            ->where('raffle', '=', 1)
+            ->get();
+            return $tickets;
+        }
     }
 
     /**
@@ -34,7 +47,26 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $guest = new Guest;
+        $guest->fill($request->only([
+            'first_name',
+            'last_name',
+            'middle_initial',
+            'batch_year',
+            'ticket_no',
+            'honors',
+            'profession',
+            'company_org',
+            'address',
+            'residence',
+            'telephone',
+            'cellphone',
+            'email',
+            'degree',
+        ]));
+
+        $guest->save();
+        return redirect('/');
     }
 
     /**

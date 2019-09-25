@@ -19,3 +19,5 @@ Route::get('/dashboard', 'IndexController@dashboard');
 Route::get('/raffle', 'IndexController@raffle');
 
 Route::get('/fillup', 'IndexController@fillup');
+
+Route::resource('guests', 'GuestController');

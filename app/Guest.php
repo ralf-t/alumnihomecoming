@@ -9,6 +9,18 @@ class Guest extends Model
 	protected $fillable = [
 		'first_name',
 		'last_name',
-		'school_year',
+		'middle_initial',
+		'batch_year',
+		'ticket_no',
+		'honors',
+		'profession',
+		'company_org',
+		'address',
+		'residence',
+		'telephone',
+		'cellphone',
+		'email',
+		'degree',
+		'raffle',
 	];
 }

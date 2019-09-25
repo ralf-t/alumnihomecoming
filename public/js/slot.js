@@ -9,7 +9,16 @@ var ITEM_COUNT = 10 // item count in slots
 var SLOT_SPEED = 25; // how many pixels per second slots roll
 var DRAW_OFFSET = 75 // how much draw offset in slot display from top
 
-var guests = [101, 102, 103, 104, 105];
+var guests = [];
+$.ajax({
+	url: 'guests',
+	success: function(response) {
+		alert(response);
+	},
+	error: function (response) {
+		alert('Something went wrong, please try again later.');
+	},
+});
 var winners = [];
 var comments = ['Prizes and Surprises!', 'Look out for more Prizes!', 'Merry Christmas!', 
 'Look at your Number!', 'Take care of your prizes!', 'Shoutout to the R&D!',
