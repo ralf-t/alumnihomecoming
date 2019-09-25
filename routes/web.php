@@ -16,3 +16,5 @@ Route::get('/', 'IndexController@register');
 Route::get('/dashboard', 'IndexController@dashboard');
 
 Route::get('/raffle', 'IndexController@raffle');
+
+Route::get('/fillup', 'IndexController@fillup');

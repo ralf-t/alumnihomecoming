@@ -16,7 +16,6 @@
 			</div>
 		</div>
 	</div>
-
 	@include('_scripts')
 	@yield('scripts')
 </body>

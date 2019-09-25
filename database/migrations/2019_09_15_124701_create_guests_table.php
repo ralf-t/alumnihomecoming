@@ -17,7 +17,10 @@ class CreateGuestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->integer('school_year');
+            $table->string('middle_initial')
+            ->nullable();
+            $table->integer('batch_year');
+            $table->integer('ticket_no');
             $table->timestamps();
         });
     }

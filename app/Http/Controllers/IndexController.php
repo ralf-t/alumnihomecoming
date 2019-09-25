@@ -17,4 +17,8 @@ class IndexController extends Controller
 	public function raffle() {
 		return view('raffle');
 	}
+
+	public function fillup() {
+		return view('fillup');
+	}
 }
