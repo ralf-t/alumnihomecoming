@@ -5,17 +5,22 @@
 
 html, body {
   background: url('../img/Background.png');
-  background-size: cover;
+  background-color: black;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
   max-height: 100vh;
+  background-size: contain;
 }
 
 #ui {
-  margin: 150px 50px 0 50px;
-  padding: 50px;
+  margin-top: 27.5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
   background-color: #bdc3c7;
   border-radius: 14px;
   opacity: 0.9;

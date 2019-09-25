@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@register');
+Route::post('/', 'GuestController@store');
 
 Route::get('/dashboard', 'IndexController@dashboard');
 
