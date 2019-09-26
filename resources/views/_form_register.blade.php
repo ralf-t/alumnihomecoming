@@ -20,7 +20,7 @@
 		<div class="row justify-content-center">
 			<div class="col-3 px-1">
 				<label for="batch">Batch (Year)</label>
-				<select name="batch_year" id="batch" class="custom-select form-control" required></select>
+				<input type="text" name="batch_year" id="batch" class="form-control" required>
 			</div>
 
 			<div class="col-3 px-1">

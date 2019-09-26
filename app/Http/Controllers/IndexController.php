@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Guest;
 
 class IndexController extends Controller
 {
@@ -20,5 +21,10 @@ class IndexController extends Controller
 
 	public function fillup() {
 		return view('fillup');
+	}
+
+	public function validate() {
+		$guests = Guest::all();
+		return $guests;
 	}
 }

@@ -21,15 +21,29 @@ $(function() {
 		}
 	});
 
-	var min = 1946,
-	max = new Date(),
-	select = document.getElementById('batch');
+	// $.ajax({
+	// 	url: 'validate',
+	// 	success: function(response) {
+	// 		for (var i = 0; i < count(response); i ++) {
+	// 			if (ticket == response.ticket_no) {
+	// 				Swal.fire({
+	// 					type: 'error',
+	// 					text: 'Ticket number already registered',
+	// 					timer: 1500,
+	// 				});
+	// 			} else {
+	// 				Swal.fire({
+	// 					type: 'success',
+	// 					text: 'Successfully registered',
+	// 					timer: 1500,
+	// 				});
+	// 			}
+	// 		}
 
-	for (var i = max.getFullYear() - 1; i>=min; i--){
-		var opt = document.createElement('option');
-		opt.value = i;
-		opt.innerHTML = i;
-		select.appendChild(opt);
-	}
+	// 	},
+	// 	error: function(response) {
+
+	// 	},
+	// });
 });
 
