@@ -3,10 +3,10 @@ var IMAGE_TOP_MARGIN = 5;
 var IMAGE_BOTTOM_MARGIN = 5;
 var SLOT_SEPARATOR_HEIGHT = 2
 var SLOT_HEIGHT = IMAGE_HEIGHT + IMAGE_TOP_MARGIN + IMAGE_BOTTOM_MARGIN + SLOT_SEPARATOR_HEIGHT; // how many pixels one slot image takes
-var RUNTIME = 2000; // how long all slots spin before starting countdown
-var SPINTIME = 1000; // how long each slot spins at minimum
+var RUNTIME = 1500; // how long all slots spin before starting countdown
+var SPINTIME = 650; // how long each slot spins at minimum
 var ITEM_COUNT = 10 // item count in slots
-var SLOT_SPEED = 25; // how many pixels per second slots roll
+var SLOT_SPEED = 35; // how many pixels per second slots roll
 var DRAW_OFFSET = 75 // how much draw offset in slot display from top
 
 var guests = [];
@@ -322,9 +322,9 @@ Game.prototype.update = function() {
    // Check slot status and if spun long enough stop it on result
    function _check_slot( offset, result, state ) {
    	if (state == 5) {
-   		SPINTIME = 3500;
+   		SPINTIME = 2000;
    	} else {
-   		SPINTIME = 1000;
+   		SPINTIME = 650;
    	}
    	if ( now - that.lastUpdate > SPINTIME ) {
    		var c = parseInt(Math.abs( offset / SLOT_HEIGHT)) % ITEM_COUNT;
@@ -342,12 +342,20 @@ Game.prototype.update = function() {
 	}
 
 	function _show_result() {
+		var prefix = "";
+		if (Math.floor(guest_id / 10) == 0) {
+			prefix = "000";
+		} else if (Math.floor(guest_id / 100) == 0) {
+			prefix = "00";
+		} else if (Math.floor(guest_id / 1000) == 0) {
+			prefix = "0";
+		}
 		$.ajax({
 			url: 'guests/' + guest_id,
 			success: function(response) {
 				$('#results').show();
-				$('#header').find('h1').text(comments[comment_index]);
-				$('#multiplier').text(guest_id);
+				$('#header').find('h1').text('Look at your number!');
+				$('#multiplier').html(prefix + guest_id);
 				$('#name').html(response.first_name + ' ' + response.last_name);
 				$('#status').text('CONGRATULATIONS!');
 			},
@@ -418,7 +426,7 @@ Game.prototype.update = function() {
     guest_id += 10 * parseInt(that.items3[that.result3].id);
     guest_id += parseInt(that.items4[that.result4].id);
 
-    setTimeout(_show_result, 2000);
+    setTimeout(_show_result, 1000);
     
     this.state = 8;
     break;

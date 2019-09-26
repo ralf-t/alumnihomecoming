@@ -59,11 +59,6 @@ class GuestController extends Controller
             'degree',
         ]));
 
-        // $duplicate = Guest::find($guest->ticket_no);
-        // if (count($duplicate) > 0) {
-        //     return 
-        // }
-
         $guest->save();
         return redirect('/');
     }

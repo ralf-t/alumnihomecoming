@@ -164,11 +164,14 @@ html, body
   #results #score {
     margin: 5px;
     margin-top: 25px;
+    font-weight: bold;
   }
 
   #name {
     font-family: 'Lora';
-    font-size: 75px;
+    font-size: 60px;
+    text-transform: capitalize;
+    font-weight: bold;
   }
 
   #status {

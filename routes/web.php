@@ -20,8 +20,10 @@ Route::get('raffle', 'IndexController@raffle');
 
 Route::get('fillup', 'IndexController@fillup');
 
-Route::get('validate', 'IndexController@validate');
+Route::get('validation', 'IndexController@validation');
 
 Route::get('guests/{id}', 'GuestController@show');
+
+Route::post('guests', 'GuestController@index');
 
 Route::resource('guests', 'GuestController');

@@ -4,6 +4,36 @@ function Confirm() {
 	var middlename = document.getElementById('middle_name').value;
 	var ticket = document.getElementById('ticket').value;
 	var fullname = firstname + ' ' + middlename + ' ' + lastname;
+
+	$.ajax({
+		url: 'validation',
+		success: function(response) {
+			// for (var i = 0; i < count(response); i ++) {
+			// 	if (ticket == response.ticket_no) {
+			// 		Swal.fire({
+			// 			type: 'error',
+			// 			text: 'Ticket number already registered',
+			// 			timer: 1500,
+			// 		});
+			// 	} else {
+			// 		Swal.fire({
+			// 			type: 'success',
+			// 			text: 'Successfully registered',
+			// 			timer: 1500,
+			// 		});
+			// 	}
+			// }
+			alert(response[1]);
+		},
+		error: function(response) {
+			Swal.fire({
+				type: 'error',
+				text: 'Something went wrong, please try again later.',
+				confirmButtonText: 'Okay',
+			});
+		},
+	});
+
 	return confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket);
 }
 
@@ -20,30 +50,5 @@ $(function() {
 			$('button.swal2-confirm').click();
 		}
 	});
-
-	// $.ajax({
-	// 	url: 'validate',
-	// 	success: function(response) {
-	// 		for (var i = 0; i < count(response); i ++) {
-	// 			if (ticket == response.ticket_no) {
-	// 				Swal.fire({
-	// 					type: 'error',
-	// 					text: 'Ticket number already registered',
-	// 					timer: 1500,
-	// 				});
-	// 			} else {
-	// 				Swal.fire({
-	// 					type: 'success',
-	// 					text: 'Successfully registered',
-	// 					timer: 1500,
-	// 				});
-	// 			}
-	// 		}
-
-	// 	},
-	// 	error: function(response) {
-
-	// 	},
-	// });
 });
 

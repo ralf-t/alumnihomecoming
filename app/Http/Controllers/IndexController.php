@@ -23,8 +23,8 @@ class IndexController extends Controller
 		return view('fillup');
 	}
 
-	// public function validate() {
-	// 	$guests = Guest::all();
-	// 	return $guests;
-	// }
+	public function validation() {
+		$guests = Guest::all();
+		return $guests;
+	}
 }
