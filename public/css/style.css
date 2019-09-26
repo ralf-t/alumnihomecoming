@@ -1,4 +1,4 @@
 html, body {
 	background-color: #d3d3d3;
-	min-height: 100vh;
+	max-height: 100vh;
 }

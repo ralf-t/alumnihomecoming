@@ -24,7 +24,7 @@ class IndexController extends Controller
 	}
 
 	public function validation() {
-		$guests = Guest::all();
+		$guests = Guest::pluck('ticket_no');
 		return $guests;
 	}
 }

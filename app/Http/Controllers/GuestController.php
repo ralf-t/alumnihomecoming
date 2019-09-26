@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guest;
+use App\Ticket;
 
 class GuestController extends Controller
 {
@@ -47,10 +48,10 @@ class GuestController extends Controller
             'last_name',
             'middle_name',
             'batch_year',
-            'ticket_no',
             'honors',
             'profession',
             'company_org',
+            'year_graduated',
             'address',
             'residence',
             'telephone',
@@ -60,6 +61,12 @@ class GuestController extends Controller
         ]));
 
         $guest->save();
+
+        $ticket = new Ticket;
+        $ticket->fill($request->only([
+            'ticket_no',
+        ]));
+        $ticket->guest_id = $guest->id;
         return redirect('/');
     }
 
