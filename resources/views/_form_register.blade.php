@@ -13,8 +13,8 @@
 			</div>
 
 			<div class="col-3 pl-1">
-				<label for="middle_i">Middle Initial</label>
-				<input type="text" class="form-control" id="middle_i" name="middle_initial">
+				<label for="middle_name">Middle Name</label>
+				<input type="text" class="form-control" id="middle_name" name="middle_name">
 			</div>
 		</div>
 		<div class="row justify-content-center">

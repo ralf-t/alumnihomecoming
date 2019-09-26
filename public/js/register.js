@@ -1,5 +1,10 @@
 function Confirm() {
-	return confirm("Please Confirm\n<Name>, your ticket# is/are \n\n<ticket#>");
+	var firstname = document.getElementById('first_name').value;
+	var lastname = document.getElementById('last_name').value;
+	var middlename = document.getElementById('middle_name').value;
+	var ticket = document.getElementById('ticket').value;
+	var fullname = firstname + ' ' + middlename + ' ' + lastname;
+	return confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket);
 }
 
 $(function() {

@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', 'IndexController@register');
-Route::post('/', 'GuestController@store');
+Route::get('', 'IndexController@register');
+Route::post('', 'GuestController@store');
 
-Route::get('/dashboard', 'IndexController@dashboard');
+Route::get('dashboard', 'IndexController@dashboard');
 
-Route::get('/raffle', 'IndexController@raffle');
+Route::get('raffle', 'IndexController@raffle');
 
-Route::get('/fillup', 'IndexController@fillup');
+Route::get('fillup', 'IndexController@fillup');
+
+Route::get('guests/{id}', 'GuestController@show');
 
 Route::resource('guests', 'GuestController');

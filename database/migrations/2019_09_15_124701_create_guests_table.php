@@ -14,13 +14,13 @@
     public function up()
     {
         Schema::create('guests', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->integer('ticket_no')
+            ->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('middle_initial')
+            $table->string('middle_name')
             ->nullable();
             $table->integer('batch_year');
-            $table->integer('ticket_no');
             $table->string('honors')
             ->nullable();
             $table->string('profession')
@@ -42,6 +42,7 @@
             $table->boolean('raffle')
             ->default(false);
             $table->timestamps();
+            $table->primary('ticket_no');
         });
     }
 

@@ -17,7 +17,7 @@ class GuestController extends Controller
         if (!$request->ajax()){
             return view('dashboard');
         } else {
-            $tickets = Guest::where('raffle', '=', '1')
+            $tickets = Guest::where('raffle', '=', '0')
             ->pluck('ticket_no');
             return $tickets;
         }
@@ -45,7 +45,7 @@ class GuestController extends Controller
         $guest->fill($request->only([
             'first_name',
             'last_name',
-            'middle_initial',
+            'middle_name',
             'batch_year',
             'ticket_no',
             'honors',
@@ -59,6 +59,11 @@ class GuestController extends Controller
             'degree',
         ]));
 
+        // $duplicate = Guest::find($guest->ticket_no);
+        // if (count($duplicate) > 0) {
+        //     return 
+        // }
+
         $guest->save();
         return redirect('/');
     }
@@ -71,7 +76,8 @@ class GuestController extends Controller
      */
     public function show($id)
     {
-        //
+        $guest = Guest::find($id);
+        return $guest;
     }
 
     /**

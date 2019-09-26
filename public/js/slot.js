@@ -342,11 +342,23 @@ Game.prototype.update = function() {
 	}
 
 	function _show_result() {
-		$('#results').show();
-		$('#header').find('h1').text(comments[comment_index]);
-		$('#multiplier').text(guest_id);
-		$('#name').text('<Insert Name>');
-		$('#status').text('CONGRATULATIONS!');
+		$.ajax({
+			url: 'guests/' + guest_id,
+			success: function(response) {
+				$('#results').show();
+				$('#header').find('h1').text(comments[comment_index]);
+				$('#multiplier').text(guest_id);
+				$('#name').html(response.first_name + ' ' + response.last_name);
+				$('#status').text('CONGRATULATIONS!');
+			},
+			error: function(response) {
+				$('#results').show();
+				$('#header').find('h1').text('ERROR');
+				$('#multiplier').text('----');
+				$('#name').text('COULD NOT');
+				$('#status').text('FIND GUEST');
+			},
+		});
 	}
 
 	switch (this.state) {
