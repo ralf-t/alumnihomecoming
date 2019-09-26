@@ -24,6 +24,8 @@ Route::get('validation', 'IndexController@validation');
 
 Route::get('guests/{id}', 'GuestController@show');
 
+Route::get('ticket/{ticket}', 'IndexController@guest_id');
+
 Route::post('guests', 'GuestController@index');
 
 Route::resource('guests', 'GuestController');

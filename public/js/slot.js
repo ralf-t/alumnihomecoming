@@ -351,7 +351,7 @@ Game.prototype.update = function() {
 			prefix = "0";
 		}
 		$.ajax({
-			url: 'guests/' + guest_id,
+			url: 'ticket/' + guest_id,
 			success: function(response) {
 				$('#results').show();
 				$('#header').find('h1').text('Look at your number!');

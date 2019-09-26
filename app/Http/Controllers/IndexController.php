@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guest;
+use App\Ticket;
 
 class IndexController extends Controller
 {
@@ -26,5 +27,11 @@ class IndexController extends Controller
 	public function validation() {
 		$guests = Guest::pluck('ticket_no');
 		return $guests;
+	}
+
+	public function guest_id($ticket) {
+		$ticket = Ticket::where('ticket_no', '=', $ticket)->get();
+		$guest = Guest::where('id', '=', $ticket[0]->guest_id)->get();
+		return $guest[0];
 	}
 }

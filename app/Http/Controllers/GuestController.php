@@ -18,7 +18,9 @@ class GuestController extends Controller
         if (!$request->ajax()){
             return view('dashboard');
         } else {
-            $tickets = Guest::where('raffle', '=', '0')
+            $confirmed = Guest::where('raffle', '=', '0')
+            ->pluck('id');
+            $tickets = Ticket::whereIn('guest_id', $confirmed)
             ->pluck('ticket_no');
             return $tickets;
         }
@@ -66,7 +68,13 @@ class GuestController extends Controller
         $ticket->fill($request->only([
             'ticket_no',
         ]));
+
+        // $ticket_array = explode(',', $request->ticket_no);
+        // return $ticket_array;
+
+        // $ticket->ticket_no
         $ticket->guest_id = $guest->id;
+        $ticket->save();
         return redirect('/');
     }
 

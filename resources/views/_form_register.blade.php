@@ -25,8 +25,10 @@
 
 			<div class="col-3 px-1">
 				<label for="ticket">Ticket No.</label>
-				<input type="text" class="form-control mb-0" id="ticket" name="ticket_no" required>
-				<small id="ticket_help" class="form-text text-muted mt-0 mb-2">For multiple tickets, separate by comma</small>
+				<div class="input-group">
+					<input type="text" class="form-control mb-0" id="ticket" name="ticket_no" required>
+				</div>
+				<small id="ticket_help" class="form-text mt-0 mb-2">For multiple tickets, separate by comma</small>
 			</div>
 		</div>
 		<button class="btn reg form-control" id="submit" onclick="return CheckDuplicates()">Register</button>

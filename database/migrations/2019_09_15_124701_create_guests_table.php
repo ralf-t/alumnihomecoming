@@ -14,7 +14,7 @@
     public function up()
     {
         Schema::create('guests', function (Blueprint $table) {
-            $table->increment('id');
+            $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name')
