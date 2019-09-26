@@ -15,16 +15,10 @@ class GuestController extends Controller
     public function index(Request $request)
     {
         if (!$request->ajax()){
-            $tickets = Guest::table('guests')
-            ->select('ticket_no')
-            ->where('raffle', '=', 1)
-            ->get();
-            return $tickets;
+            return view('dashboard');
         } else {
-            $tickets = Guest::table('guests')
-            ->select('ticket_no')
-            ->where('raffle', '=', 1)
-            ->get();
+            $tickets = Guest::where('raffle', '=', '1')
+            ->pluck('ticket_no');
             return $tickets;
         }
     }

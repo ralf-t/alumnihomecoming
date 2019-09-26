@@ -13,10 +13,12 @@ var guests = [];
 $.ajax({
 	url: 'guests',
 	success: function(response) {
-		alert(response);
+		guests = response;
+		alert(guests);
 	},
 	error: function (response) {
 		alert('Something went wrong, please try again later.');
+		window.location = '/';
 	},
 });
 var winners = [];
