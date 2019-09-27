@@ -6,7 +6,7 @@
 		<div class="col-12 col-md-7 col-lg-5">
 			<div class="card z-depth-3">
 				<div class="card-body mx-4">
-					<form method="POST">
+					<form method="POST" name="form_login">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<label for="username">Username</label>
