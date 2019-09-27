@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Guest;
 use App\Ticket;
+use Carbon\Carbon;
 
 class GuestController extends Controller
 {
