@@ -4,15 +4,22 @@ function Confirm() {
 	var middlename = document.getElementById('middle_name').value;
 	var ticket = document.getElementById('ticket').value;
 	var fullname = firstname + ' ' + middlename + ' ' + lastname;
-	return confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket).then(Success());
+	var confirmation = confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket)/*.then(Success(response))*/;
+	if (confirmation == true) {
+		Success(confirmation);
+	}
+	return confirmation;
 }
 
-function Success() {
-	Swal.fire({
-		type: 'success',
-		title: 'Successfully registered.',
-		showConfirmButton: false,
-	});
+function Success(confirmation) {
+	if (confirmation == true) {
+		Swal.fire({
+			type: 'success',
+			title: 'Successfully registered.',
+			showConfirmButton: false,
+		});
+		return confirmation;
+	}
 }
 
 $(function() {

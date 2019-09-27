@@ -322,7 +322,7 @@ Game.prototype.update = function() {
    // Check slot status and if spun long enough stop it on result
    function _check_slot( offset, result, state ) {
    	if (state == 5) {
-   		SPINTIME = 2000;
+   		SPINTIME = 3500;
    	} else {
    		SPINTIME = 650;
    	}
