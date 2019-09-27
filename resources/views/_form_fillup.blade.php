@@ -11,7 +11,7 @@
 		<h4><i class="fas fa-spinner fa-spin" id="loading"></i></h4>
 	</div>
 </div>
-<form method="POST">
+<form method="POST" onsubmit="Success()">
 	{{ csrf_field() }}
 	<div id="info-card">
 		<div class="row mt-2">

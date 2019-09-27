@@ -1,3 +1,13 @@
+function Success() {
+	Swal.fire({
+		type: 'success',
+		title: 'Guest Information Updated',
+		text: 'Guest is now part of the raffle.',
+		timer: 1500,
+		showConfirmButton: false,
+	});
+}
+
 $(function() {
 	$('#info-card').hide();
 	$('#loading').hide();
