@@ -5,6 +5,7 @@ $(function() {
 			method: 'POST',
 			url: 'login',
 			data: $(this).serialize(),
+			dataType: 'json',
 			success: function(response) {
 				if (response.success == true) {
 					Swal.fire({
