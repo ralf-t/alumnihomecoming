@@ -58,7 +58,7 @@ class IndexController extends Controller
 	public function guest_id($ticket) {
 		$ticket = Ticket::where('ticket_no', '=', $ticket)->get();
 		$guest = Guest::where('id', '=', $ticket[0]->guest_id)->get();
-		if ($guest[0]->raffle == 1) {
+		if ($guest[0]->birth_date != null) {
 			$guest[0]->birth_date = Carbon::parse($guest[0]->birth_date)->isoFormat('MMMM D, YYYY');
 		}
 		return $guest[0];

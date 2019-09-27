@@ -81,7 +81,9 @@ class GuestController extends Controller
     public function show($id)
     {
         $guest = Guest::find($id);
-        $guest->birth_date = Carbon::parse($guest->birth_date)->isoFormat('MMMM D, YYYY');
+        if ($guest->birth_date != null) {
+            $guest->birth_date = Carbon::parse($guest->birth_date)->isoFormat('MMMM D, YYYY');
+        }
         return $guest;
     }
 
