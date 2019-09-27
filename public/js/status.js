@@ -11,7 +11,7 @@ $(function() {
 						type: 'success',
 						title: 'Logged in successfully',
 						showConfirmButton: false,
-						timer: 5000,
+						timer: 2000,
 					});
 					window.location = 'dashboard';
 				} else {

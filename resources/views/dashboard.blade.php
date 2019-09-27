@@ -16,9 +16,11 @@
 							<div class="my-2">
 								<form method="POST">
 									{{ csrf_field() }}
-									<div class="input-group w-100">
+									<div class="input-group w-75">
 										<input type="search" class="form-control" name="search" placeholder="Search">
-										<button class="btn btn-outline-success" type="submit" title="search"><i class="fas fa-search"></i></button>
+										<div class="input-group-append">
+											<button class="btn btn-success" type="submit" title="search"><i class="fas fa-search"></i></button>
+										</div>
 									</div>
 								</form>
 							</div>
