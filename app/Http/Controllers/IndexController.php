@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Guest;
 use App\Ticket;
@@ -33,7 +34,11 @@ class IndexController extends Controller
 	}
 
 	public function login() {
-		return view('login');
+		if (Auth::user()) {
+			return redirect('dashboard');
+		} else {
+			return view('login');
+		}
 	}
 
 	public function validation($ticket) {
