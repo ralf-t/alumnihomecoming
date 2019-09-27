@@ -24,9 +24,13 @@ class IndexController extends Controller
 		return view('fillup');
 	}
 
-	public function validation() {
-		$guests = Guest::pluck('ticket_no');
-		return $guests;
+	public function validation($ticket) {
+		$duplicates = Ticket::where('ticket_no', '=', $ticket)->get();
+		if (count($duplicates) > 0) {
+			return '1';
+		} else {
+			return '0';
+		}
 	}
 
 	public function guest_id($ticket) {

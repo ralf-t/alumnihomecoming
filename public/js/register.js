@@ -1,32 +1,19 @@
-$('form').bind('ajax:complete', function CheckDuplicates() {
-	if (duplicate == true) {
-		Swal.fire({
-			type: 'error',
-			text: 'Ticket number already registered',
-			timer: 1500,
-		});
-		break;
-	} else if (valid_err == true) {
-		Swal.fire({
-			type: 'error',
-			text: 'Something went wrong, please try again later.',
-			confirmButtonText: 'Okay',
-		});
-		break;
-	}
-});
-
 function Confirm() {
 	var firstname = document.getElementById('first_name').value;
 	var lastname = document.getElementById('last_name').value;
 	var middlename = document.getElementById('middle_name').value;
 	var ticket = document.getElementById('ticket').value;
 	var fullname = firstname + ' ' + middlename + ' ' + lastname;
-	return confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket);
+	return confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket).then(Success());
 }
 
-var duplicate = false;
-var valid_err = false;
+function Success() {
+	Swal.fire({
+		type: 'success',
+		title: 'Successfully registered.',
+		showConfirmButton: false,
+	});
+}
 
 $(function() {
 	document.getElementById('batch').maxLength = '4';
@@ -40,18 +27,7 @@ $(function() {
 		confirmButtonText: 'Proceed',
 	});
 
-	$.ajax({
-		url: 'validation',
-		success: function(response) {
-			tickets = response;
-		},
-		error: function(response) {
-			valid_err = true;
-		},
-	});
-
-
-	$(document).on('keypress', function() {
+	$(document).on('keypress', function(e) {
 		if(e.which == 13) {
 			$('button.swal2-confirm').click();
 		}
@@ -99,14 +75,27 @@ $(function() {
 			$('button#submit').removeAttr('disabled');
 		}
 
-		alert(tickets.Length());
-		for (var i = 0; i < tickets.Length(); i ++) {
-			if (tickets[i] == parseInt(ticket)) {
-				duplicate = true;
-				alert('duplicate');
-			} else {
-				duplicate = false;
-			}
+		if (ticket.length == 4) {
+			$.ajax({
+				url: 'validation/' + ticket,
+				success: function(response) {
+					if (response == '1') {
+						Swal.fire({
+							type: 'error',
+							text: 'Ticket number already registered',
+							timer: 1500,
+						});
+						$('button#submit').attr('disabled', 'disabled');
+						$('#ticket').addClass('is-invalid');
+					} else {
+						$('#ticket').removeClass('is-invalid');
+						$('button#submit').removeAttr('disabled');
+					}
+				},
+				error: function(response) {
+					
+				},
+			});
 		}
 	});
 });

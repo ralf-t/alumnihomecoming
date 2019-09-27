@@ -31,6 +31,6 @@
 				<small id="ticket_help" class="form-text mt-0 mb-2">For multiple tickets, separate by comma</small>
 			</div>
 		</div>
-		<button class="btn reg form-control" id="submit" onclick="return CheckDuplicates()">Register</button>
+		<button class="btn reg form-control" id="submit">Register</button>
 	</div>
 </form>

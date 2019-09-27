@@ -21,7 +21,7 @@ Route::get('raffle', 'IndexController@raffle');
 Route::get('fillup', 'IndexController@fillup');
 Route::post('fillup', 'GuestController@store');
 
-Route::get('validation', 'IndexController@validation');
+Route::get('validation/{ticket}', 'IndexController@validation');
 
 Route::get('guests/{id}', 'GuestController@show');
 

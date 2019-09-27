@@ -61,20 +61,21 @@ class GuestController extends Controller
             'email',
             'degree',
         ]));
-
+        
         $guest->save();
 
         $ticket = new Ticket;
         $ticket->fill($request->only([
             'ticket_no',
         ]));
+        $ticket->guest_id = $guest->id;
+
+        $ticket->save();
 
         // $ticket_array = explode(',', $request->ticket_no);
         // return $ticket_array;
 
         // $ticket->ticket_no
-        $ticket->guest_id = $guest->id;
-        $ticket->save();
         return redirect('/');
     }
 
