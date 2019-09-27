@@ -32,6 +32,10 @@ class IndexController extends Controller
 		return view('fillup');
 	}
 
+	public function login() {
+		return view('login');
+	}
+
 	public function validation($ticket) {
 		$duplicates = Ticket::where('ticket_no', '=', $ticket)->get();
 		if (count($duplicates) > 0) {

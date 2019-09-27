@@ -14,6 +14,8 @@
 Route::get('', 'IndexController@register');
 Route::post('', 'GuestController@store');
 
+Route::get('login', 'IndexController@login');
+
 Route::get('dashboard', 'IndexController@dashboard');
 
 Route::get('raffle', 'IndexController@raffle');

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -16,7 +18,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'username',
+        'password',
+        'type',
     ];
 
     /**
@@ -28,12 +34,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // *
+    //  * The attributes that should be cast to native types.
+    //  *
+    //  * @var array
+
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    public static function boot() {
+        parent::boot();
+
+        self::creating(function($model) {
+            $model->password = Hash::make($model->password);
+        });
+    }
 }
