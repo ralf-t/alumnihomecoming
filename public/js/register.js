@@ -46,6 +46,7 @@ $(function() {
 
 	$('#batch').keyup(function() {
 		var batch = $(this).val();
+
 		if (isNaN(batch)) {
 			$(this).addClass('is-invalid');
 			error_b = true;
@@ -57,11 +58,18 @@ $(function() {
 			error_b = false;
 		}
 
+		if (batch.length > 0 && batch.length < 4) {
+			error_b = true;
+		} else {
+			error_b = false;
+		}
+
 		if (error_b == true || error_t == true) {
 			$('button#submit').attr('disabled', 'disabled');
 		} else {
 			$('button#submit').removeAttr('disabled');
 		}
+
 	});
 
 	$('#ticket').keyup(function() {
