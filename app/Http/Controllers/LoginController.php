@@ -8,10 +8,20 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
 	public function login(Request $request) {
+		$error = 0;
+		$response = array();
+		
 		if (Auth::attempt($request->only(['username', 'password']))) {
-			return response()->json(['success' => true]);
+			return redirect('dashboard');
 		} else {
-			return response()->json(['success' => false]);
+			$message = 'Invalid Username and/or Password.';
+			$error ++;
+			$response[0] = $message;
+			$response[1] = $error;
+			return view('login', [
+				'response' => $response,
+				'request' => $request
+			]);
 		}
 	}
 

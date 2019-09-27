@@ -37,7 +37,12 @@ class IndexController extends Controller
 		if (Auth::user()) {
 			return redirect('dashboard');
 		} else {
-			return view('login');
+			$response = array();
+			$response[0] = '';
+			$response[1] = 0;
+			return view('login', [
+				'response' => $response,
+			]);
 		}
 	}
 
