@@ -14,7 +14,12 @@ class IndexController extends Controller
 	}
 
 	public function dashboard() {
-		return view('dashboard');
+		$guests = Guest::all();
+		$tickets = Ticket::all();
+		return view('dashboard', [
+			'guests' => $guests,
+			'tickets' => $tickets,
+		]);
 	}
 
 	public function raffle() {

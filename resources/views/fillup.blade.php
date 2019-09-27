@@ -23,6 +23,9 @@
 
 @section('scripts')
 <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+@if(Request::is('fillup/*'))
+@else
 <script src="{{ asset('js/fillup.js') }}"></script>
+@endif
 <script src="{{ asset('js/jquery-dateformat.min.js') }}"></script>
 @endsection

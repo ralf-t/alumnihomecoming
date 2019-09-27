@@ -92,7 +92,10 @@ class GuestController extends Controller
      */
     public function edit($id)
     {
-
+        $guest = Guest::find($id);
+        return view('fillup', [
+            'guest' => $guest,
+        ]);
     }
 
     /**
