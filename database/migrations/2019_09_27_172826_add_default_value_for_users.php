@@ -25,6 +25,18 @@ class AddDefaultValueForUsers extends Migration
         ]);
 
         $user->save();
+
+        $user = new User;
+
+        $user->fill([
+            'first_name' => 'Research',
+            'last_name' => 'Development',
+            'username' => 'rnd',
+            'password' => 'ueccssrnd',
+            'type' => 'USER',
+        ]);
+
+        $user->save();
     }
 
     /**
