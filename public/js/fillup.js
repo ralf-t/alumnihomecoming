@@ -11,14 +11,20 @@ $(function() {
 			$.ajax({
 				url: 'ticket/' + ticket,
 				success: function(response) {
+					var id = response.id;
 					$('#loading').hide();
 					$('#info-card').show();
+					$('form').attr('action', 'fillup/' + id);
 					$('#lastname').val(response.last_name);
 					$('#firstname').val(response.first_name);
 					$('#middlename').val(response.middle_name);
 				},
 				error: function(response) {
-					alert('Ticket Number not found.');
+					Swal.fire({
+						type: 'error',
+						title: 'Ticket Number not found.',
+						confirmButtonText: 'Okay',
+					});
 					$('#loading').hide();
 				}
 			});

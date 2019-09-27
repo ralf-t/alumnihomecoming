@@ -50,18 +50,8 @@ class GuestController extends Controller
             'last_name',
             'middle_name',
             'batch_year',
-            'honors',
-            'profession',
-            'company_org',
-            'year_graduated',
-            'address',
-            'residence',
-            'telephone',
-            'cellphone',
-            'email',
-            'degree',
         ]));
-        
+
         $guest->save();
 
         $ticket = new Ticket;
@@ -99,7 +89,7 @@ class GuestController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -111,7 +101,28 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $guest = Guest::find($id);
+        $guest->fill($request->only([
+            'first_name',
+            'last_name',
+            'middle_name',
+            'batch_year',
+            'honors',
+            'profession',
+            'company_org',
+            'year_graduated',
+            'address',
+            'residence',
+            'telephone',
+            'cellphone',
+            'email',
+            'degree',
+        ]));
+
+        $guest->raffle = 1;
+        $guest->save();
+
+        return redirect('fillup');
     }
 
     /**
