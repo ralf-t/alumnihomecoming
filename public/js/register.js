@@ -60,7 +60,7 @@ $(function() {
 	var error_b = false;
 	var error_t = false;
 
-	$('#batch').keypress(function() {
+	$('#batch').keyup(function() {
 		var batch = $(this).val();
 		if (isNaN(batch)) {
 			$(this).addClass('is-invalid');

@@ -9,9 +9,11 @@
 				<input type="text" class="form-control" id="ticket" name="ticket_no" required>
 			</div>
 		</div>
+		<div>
+			<h4><i class="fas fa-spinner fa-spin" id="loading"></i></h4>
+		</div>
 	</div>
 	<div id="info-card">
-		
 		<div class="row mt-2">
 			<div class="col-4 pr-1">
 				<div class="input-group">
@@ -22,7 +24,7 @@
 				</div>
 			</div>
 			<div class="col-5 px-1">
-				<div class="input-group" id="firstname">
+				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Given Name</span>
 					</div>
@@ -115,7 +117,7 @@
 			</div>
 		</div>
 		<div class="row mt-2">
-			<div class="col-6">
+			<div class="col-6 pr-1">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Telephone #</span>
@@ -123,7 +125,7 @@
 					<input type="text" class="form-control" id="telephone" name="telephone">
 				</div>
 			</div>
-			<div class="col-6">
+			<div class="col-6 pl-1">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Cellphone #</span>

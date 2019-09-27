@@ -8,3 +8,7 @@
 #buttons {
 	text-align: center;
 }
+
+#firstname, #lastname, #middlename {
+	text-transform: uppercase;
+}

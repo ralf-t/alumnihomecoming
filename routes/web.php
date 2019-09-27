@@ -19,6 +19,7 @@ Route::get('dashboard', 'IndexController@dashboard');
 Route::get('raffle', 'IndexController@raffle');
 
 Route::get('fillup', 'IndexController@fillup');
+Route::post('fillup', 'GuestController@store');
 
 Route::get('validation', 'IndexController@validation');
 
