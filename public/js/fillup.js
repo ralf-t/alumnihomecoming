@@ -3,7 +3,7 @@ function Success() {
 		type: 'success',
 		title: 'Guest Information Updated',
 		text: 'Guest is now part of the raffle.',
-		timer: 1500,
+		timer: 5000,
 		showConfirmButton: false,
 	});
 }

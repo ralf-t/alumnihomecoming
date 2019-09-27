@@ -16,7 +16,7 @@ $.ajax({
 		guests = response;
 	},
 	error: function (response) {
-		alert('Something went wrong, please try again later.');
+		alert('Something went wrong. Please try again later.');
 		location.reload();
 	},
 });

@@ -10,15 +10,6 @@ function Success() {
 	});
 }
 
-function Fail() {
-	Swal.fire({
-		type: 'error',
-		title: 'Something went wrong. Please try again later.',
-		showConfirmButton: false,
-		timer: 2000,
-	});
-}
-
 $(function() {
 	let id = null;
 

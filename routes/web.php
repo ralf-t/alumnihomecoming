@@ -14,25 +14,30 @@
 Route::get('', 'IndexController@register');
 Route::post('', 'GuestController@store');
 
-Route::get('login', 'IndexController@login');
+Route::get('login', 'IndexController@login')->name('login');
+Route::post('login', 'LoginController@login');
 
-Route::get('dashboard', 'IndexController@dashboard');
+Route::get('logout', 'LoginController@logout');
 
-Route::get('raffle', 'IndexController@raffle');
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('dashboard', 'IndexController@dashboard');
 
-Route::get('fillup', 'IndexController@fillup');
-Route::get('fillup/{id}', 'GuestController@edit');
-Route::post('fillup/{id}', 'GuestController@update');
+	Route::get('raffle', 'IndexController@raffle');
 
-Route::get('validation/{ticket}', 'IndexController@validation');
+	Route::get('fillup', 'IndexController@fillup');
+	Route::get('fillup/{id}', 'GuestController@edit');
+	Route::post('fillup/{id}', 'GuestController@update');
 
-Route::get('guests', 'GuestController@index');
-Route::post('guests', 'GuestController@index');
+	Route::get('validation/{ticket}', 'IndexController@validation');
 
-Route::get('guests/{id}', 'GuestController@show');
+	Route::get('guests', 'GuestController@index');
+	Route::post('guests', 'GuestController@index');
 
-Route::get('guests/{id}/delete', 'GuestController@destroy');
+	Route::get('guests/{id}', 'GuestController@show');
 
-Route::get('ticket/{ticket}', 'IndexController@guest_id');
+	Route::get('guests/{id}/delete', 'GuestController@destroy');
 
-Route::resource('guests', 'GuestController');
+	Route::get('ticket/{ticket}', 'IndexController@guest_id');
+
+	Route::resource('guests', 'GuestController');
+});
