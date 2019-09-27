@@ -14,11 +14,10 @@ $.ajax({
 	url: 'guests',
 	success: function(response) {
 		guests = response;
-		alert(guests);
 	},
 	error: function (response) {
 		alert('Something went wrong, please try again later.');
-		window.location = '/';
+		location.reload();
 	},
 });
 var winners = [];
