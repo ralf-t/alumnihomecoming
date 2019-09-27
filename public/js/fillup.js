@@ -19,7 +19,7 @@ $(function() {
 					$('#lastname').val(response.last_name);
 					$('#firstname').val(response.first_name);
 					$('#middlename').val(response.middle_name);
-					$('#birthdate').val($.format.date(response.birth_date), "MMMM d, yyyy");
+					$('#birthdate').val(response.birth_date);
 					$('#year_graduated').val(response.year_graduated);
 					$('#degree').val(response.degree);
 					$('#honors').val(response.honors);
