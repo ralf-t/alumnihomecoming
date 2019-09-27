@@ -24,6 +24,7 @@
 @section('scripts')
 <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 @if(Request::is('fillup/*'))
+<script src="{{ asset('js/edit.js') }}"></script>
 @else
 <script src="{{ asset('js/fillup.js') }}"></script>
 @endif

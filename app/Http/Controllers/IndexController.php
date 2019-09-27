@@ -14,11 +14,13 @@ class IndexController extends Controller
 	}
 
 	public function dashboard() {
-		$guests = Guest::all();
+		$guests = Guest::orderBy('updated_at', 'asc')->paginate(10);
+		$total = Guest::all();
 		$tickets = Ticket::all();
 		return view('dashboard', [
 			'guests' => $guests,
 			'tickets' => $tickets,
+			'total' => $total,
 		]);
 	}
 

@@ -22,8 +22,6 @@
             $table->integer('batch_year');
             $table->date('birth_date')
             ->nullable();
-            $table->integer('year_graduated')
-            ->nullable();
             $table->string('honors')
             ->nullable();
             $table->string('profession')

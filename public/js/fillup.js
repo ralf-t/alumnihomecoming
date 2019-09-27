@@ -13,7 +13,6 @@ $(function() {
 	$('#loading').hide();
 
 	document.getElementById('ticket').maxLength = '4';
-	document.getElementById('year_graduated').maxLength = '4';
 
 	$('#ticket').keyup(function() {
 		$('#loading').show();
@@ -30,7 +29,7 @@ $(function() {
 					$('#firstname').val(response.first_name);
 					$('#middlename').val(response.middle_name);
 					$('#birthdate').val(response.birth_date);
-					$('#year_graduated').val(response.year_graduated);
+					$('#year_graduated').val(response.batch_year);
 					$('#degree').val(response.degree);
 					$('#honors').val(response.honors);
 					$('#profession').val(response.profession);
@@ -59,19 +58,5 @@ $(function() {
 	$('#birthdate').datepicker({
 		format: "MM d, yyyy",
 		autoclose: true,
-	});
-
-	$('#year_graduated').keyup(function() {
-		var year = $(this).val();
-		if (isNaN(year)) {
-			$(this).addClass('is-invalid');
-			$('button[type="submit"]').attr('disabled', 'disabled');
-		} else if (year.indexOf(" ") >= 0) {
-			$(this).addClass('is-invalid');
-			$('button[type="submit"]').attr('disabled', 'disabled');
-		} else {
-			$(this).removeClass('is-invalid');
-			$('button[type="submit"]').removeAttr('disabled');
-		}
 	});
 });

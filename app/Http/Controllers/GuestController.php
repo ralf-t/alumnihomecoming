@@ -81,6 +81,7 @@ class GuestController extends Controller
     public function show($id)
     {
         $guest = Guest::find($id);
+        $guest->birth_date = Carbon::parse($guest->birth_date)->isoFormat('MMMM D, YYYY');
         return $guest;
     }
 
@@ -93,8 +94,11 @@ class GuestController extends Controller
     public function edit($id)
     {
         $guest = Guest::find($id);
+        $guest->birth_date = Carbon::parse($guest->birth_date)->isoFormat('MMMM D, YYYY');
+        $tickets = Ticket::where('guest_id', '=', $guest->id)->get();
         return view('fillup', [
             'guest' => $guest,
+            'ticket' => $tickets[0],
         ]);
     }
 
@@ -116,7 +120,6 @@ class GuestController extends Controller
             'honors',
             'profession',
             'company_org',
-            'year_graduated',
             'address',
             'residence',
             'telephone',
@@ -143,6 +146,8 @@ class GuestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guest = Guest::find($id);
+        $guest->delete();
+        return redirect('dashboard');
     }
 }

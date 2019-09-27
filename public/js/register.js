@@ -92,6 +92,7 @@ $(function() {
 							type: 'error',
 							text: 'Ticket number already registered',
 							timer: 1500,
+							showConfirmButton: false,
 						});
 						$('button#submit').attr('disabled', 'disabled');
 						$('#ticket').addClass('is-invalid');

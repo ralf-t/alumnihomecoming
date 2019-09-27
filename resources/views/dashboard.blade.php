@@ -12,7 +12,7 @@
 				<div class="container-fluid px-0">
 					<div class="row justify-content-center">
 						<div class="col-11 mt-3">
-							<h3 class="mt-2">Registered: 100</h3>
+							<h3 class="mt-2">Registered: {{ count($total) }}</h3>
 							<div class="my-2">
 								<form method="POST">
 									{{ csrf_field() }}
@@ -52,9 +52,9 @@
 												@endif
 											</td>
 											<td class="float-right">
-												<button class="btn btn-light"><i class="fas fa-eye"></i></button>
-												<a class="btn btn-primary" href="fillup/{{ $guest->id }}"><i class="fas fa-edit"></i></a>
-												<button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+												<button id="link-view" class="btn btn-light" title="View" data-id="{{ $guest->id }}" data-target="#modal-view" data-toggle="modal"><i class="fas fa-eye"></i></button>
+												<a class="btn btn-primary" href="fillup/{{ $guest->id }}" title="Edit"><i class="fas fa-edit"></i></a>
+												<button id="link-delete" class="btn btn-outline-danger" title="Delete" data-id="{{ $guest->id }}" data-target="#modal-delete" data-toggle="modal"><i class="fas fa-trash-alt"></i></button>
 											</td>
 										</tr>
 										@endforeach
@@ -65,6 +65,7 @@
 										@endif
 									</tbody>
 								</table>
+								{{ $guests->links() }}
 							</div>
 						</div>
 					</div>
@@ -73,4 +74,9 @@
 		</div>
 	</div>
 </div>
+@include('_modal')
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/dashboard.js') }}"></script>
 @endsection

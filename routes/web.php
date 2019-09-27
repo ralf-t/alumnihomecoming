@@ -24,10 +24,13 @@ Route::post('fillup/{id}', 'GuestController@update');
 
 Route::get('validation/{ticket}', 'IndexController@validation');
 
+Route::get('guests', 'GuestController@index');
+Route::post('guests', 'GuestController@index');
+
 Route::get('guests/{id}', 'GuestController@show');
 
-Route::get('ticket/{ticket}', 'IndexController@guest_id');
+Route::get('guests/{id}/delete', 'GuestController@destroy');
 
-Route::post('guests', 'GuestController@index');
+Route::get('ticket/{ticket}', 'IndexController@guest_id');
 
 Route::resource('guests', 'GuestController');
