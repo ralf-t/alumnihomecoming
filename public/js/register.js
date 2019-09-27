@@ -6,20 +6,18 @@ function Confirm() {
 	var fullname = firstname + ' ' + middlename + ' ' + lastname;
 	var confirmation = confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket)/*.then(Success(response))*/;
 	if (confirmation == true) {
-		Success(confirmation);
+		Success();
 	}
 	return confirmation;
 }
 
-function Success(confirmation) {
-	if (confirmation == true) {
-		Swal.fire({
-			type: 'success',
-			title: 'Successfully registered.',
-			showConfirmButton: false,
-		});
-		return confirmation;
-	}
+function Success() {
+	Swal.fire({
+		type: 'success',
+		title: 'Successfully registered.',
+		showConfirmButton: false,
+	});
+	return confirmation;
 }
 
 $(function() {
