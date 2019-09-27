@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Guest;
 use App\Ticket;
+use Carbon\Carbon;
 
 class IndexController extends Controller
 {
@@ -36,6 +37,7 @@ class IndexController extends Controller
 	public function guest_id($ticket) {
 		$ticket = Ticket::where('ticket_no', '=', $ticket)->get();
 		$guest = Guest::where('id', '=', $ticket[0]->guest_id)->get();
+		$guest[0]->birth_date = Carbon::parse($guest[0]->birth_date)->isoFormat('MMMM D, YYYY');
 		return $guest[0];
 	}
 }

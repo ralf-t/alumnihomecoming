@@ -170,7 +170,7 @@ html, body
   #name {
     font-family: 'Lora';
     font-size: 60px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-weight: bold;
   }
 

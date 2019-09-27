@@ -3,8 +3,11 @@ function Confirm() {
 	var lastname = document.getElementById('last_name').value;
 	var middlename = document.getElementById('middle_name').value;
 	var ticket = document.getElementById('ticket').value;
+	firstname = firstname.toUpperCase();
+	lastname = lastname.toUpperCase();
+	middlename = middlename.toUpperCase();
 	var fullname = firstname + ' ' + middlename + ' ' + lastname;
-	var confirmation = confirm("Please Confirm\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket)/*.then(Success(response))*/;
+	var confirmation = confirm("Please confirm:\n\n" + fullname + "\nyour ticket number is/are \n\n" + ticket)/*.then(Success(response))*/;
 	if (confirmation == true) {
 		Success();
 	}
@@ -98,7 +101,6 @@ $(function() {
 					}
 				},
 				error: function(response) {
-					
 				},
 			});
 		}

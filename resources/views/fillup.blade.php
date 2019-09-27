@@ -24,4 +24,5 @@
 @section('scripts')
 <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('js/fillup.js') }}"></script>
+<script src="{{ asset('js/jquery-dateformat.min.js') }}"></script>
 @endsection

@@ -1,18 +1,18 @@
-<form method="POST">
-	{{ csrf_field() }}
-	<div class="row">
-		<div class="col-5">
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Ticket Number</span>
-				</div>
-				<input type="text" class="form-control" id="ticket" name="ticket_no" required>
+<div class="row">
+	<div class="col-5">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Ticket Number</span>
 			</div>
-		</div>
-		<div>
-			<h4><i class="fas fa-spinner fa-spin" id="loading"></i></h4>
+			<input type="text" class="form-control" id="ticket" name="ticket_no" required>
 		</div>
 	</div>
+	<div>
+		<h4><i class="fas fa-spinner fa-spin" id="loading"></i></h4>
+	</div>
+</div>
+<form method="POST">
+	{{ csrf_field() }}
 	<div id="info-card">
 		<div class="row mt-2">
 			<div class="col-4 pr-1">

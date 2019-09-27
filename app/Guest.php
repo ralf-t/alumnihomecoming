@@ -14,6 +14,7 @@ class Guest extends Model
 		'honors',
 		'profession',
 		'company_org',
+		'year_graduated',
 		'address',
 		'residence',
 		'telephone',

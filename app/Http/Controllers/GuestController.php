@@ -46,11 +46,13 @@ class GuestController extends Controller
     {
         $guest = new Guest;
         $guest->fill($request->only([
-            'first_name',
-            'last_name',
-            'middle_name',
             'batch_year',
         ]));
+        $guest->first_name = strtoUpper($request->first_name);
+        $guest->last_name = strtoUpper($request->last_name);
+        $guest->middle_name = strtoUpper($request->middle_name);
+        $guest->created_at = Carbon::now('+8:00');
+        $guest->updated_at = Carbon::now('+8:00');
 
         $guest->save();
 
@@ -118,6 +120,10 @@ class GuestController extends Controller
             'email',
             'degree',
         ]));
+
+        $date = Carbon::createFromIsoFormat('MMMM DD, YYYY', $request->birth_date, 'UTC');
+        $guest->birth_date = $date->isoFormat('YYYY-M-DD');
+        $guest->updated_at = Carbon::now('+8:00');
 
         $guest->raffle = 1;
         $guest->save();
