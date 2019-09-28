@@ -30,6 +30,7 @@
 										<tr>
 											<th class="th-lg" scope="col">Full Name</th>
 											<th class="th-lg" scope="col">Ticket Number</th>
+											<th class="th-lg" scope="col">Batch year</th>
 											<th class="th-lg" scope="col">Raffle Entry</th>
 											<th></th>
 										</tr>
@@ -45,6 +46,14 @@
 												{{ $ticket->ticket_no }} 
 												@endif
 												@endforeach
+											</td>
+											<td>
+												@foreach($jubi_years as $jubi_year)
+												@if ($guest->batch_year == $jubi_year)
+													Jubilarian **
+													@endif
+												@endforeach
+												{{ $guest->batch_year }}
 											</td>
 											<td>
 												@if($guest->raffle == 1)

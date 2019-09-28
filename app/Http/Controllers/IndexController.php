@@ -15,13 +15,17 @@ class IndexController extends Controller
 	}
 
 	public function dashboard() {
-		$guests = Guest::orderBy('updated_at', 'asc')->paginate(10);
+		$jubi_years = [1949, 1959, 1969, 1979, 1989, 1954, 1964, 1974, 1984, 1994];
+		$guests = Guest::orderBy('updated_at', 'desc')->paginate(10);
 		$total = Guest::all();
+		$jubilarians = Guest::whereIn('batch_year', $jubi_years)->get();
 		$tickets = Ticket::all();
 		return view('dashboard', [
 			'guests' => $guests,
 			'tickets' => $tickets,
 			'total' => $total,
+			'jubilarians' => $jubilarians,
+			'jubi_years' => $jubi_years,
 		]);
 	}
 

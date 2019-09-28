@@ -21,6 +21,7 @@ Route::get('logout', 'LoginController@logout');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('dashboard', 'IndexController@dashboard');
+	Route::post('dashboard', 'IndexController@dashboard');
 
 	Route::get('raffle', 'IndexController@raffle');
 

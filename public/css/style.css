@@ -1,5 +1,10 @@
 html, body {
-	background-color: #d3d3d3;
+	background-color: black;
+	background: url('../img/Background.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-attachment: fixed;
 	max-height: 100vh;
 	max-width: 100vw;
 }
