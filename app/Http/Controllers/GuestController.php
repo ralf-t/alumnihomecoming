@@ -96,9 +96,9 @@ class GuestController extends Controller
     public function edit($id)
     {
         $guest = Guest::find($id);
-	if ($guest->birth_date != null) {
+        if ($guest->birth_date != null) {
         	$guest->birth_date = Carbon::parse($guest->birth_date)->isoFormat('MMMM D, YYYY');
-	}
+        }
         $tickets = Ticket::where('guest_id', '=', $guest->id)->get();
         return view('fillup', [
             'guest' => $guest,
@@ -132,17 +132,17 @@ class GuestController extends Controller
             'degree',
         ]));
 
-	$ticket = Ticket::where('guest_id', '=', $id)->get();
-	$ticket[0]->fill($request->only([
-		'ticket_no',
-	]));
+        $ticket = Ticket::where('guest_id', '=', $id)->get();
+        $ticket[0]->fill($request->only([
+          'ticket_no',
+      ]));
 
-	$ticket[0]->save();
+        $ticket[0]->save();
 
-	if ($request->birth_date != null) {
-        $date = Carbon::createFromIsoFormat('MMMM DD, YYYY', $request->birth_date, 'UTC');
-        $guest->birth_date = $date->isoFormat('YYYY-M-DD');
-	}
+        if ($request->birth_date != null) {
+            $date = Carbon::createFromIsoFormat('MMMM DD, YYYY', $request->birth_date, 'UTC');
+            $guest->birth_date = $date->isoFormat('YYYY-M-DD');
+        }
         $guest->updated_at = Carbon::now('+8:00');
 
         $guest->raffle = 1;

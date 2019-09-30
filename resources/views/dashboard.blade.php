@@ -14,6 +14,7 @@
 						<div class="col-11 mt-3">
 							<h3 class="mt-2">Overall Registered: {{ count($total) }}</h3>
 							<h3 class="mt-2">Jubilarians: {{ count($jubilarians) }}</h3>
+
 							<div>Platinum: {{ count($platinum) }}</div>
 							<div>Blue Sapphire: {{count($blue_sapphire)}}</div>
 							<div>Diamond: {{ count($diamond) }}</div>
@@ -54,23 +55,23 @@
 											<td>
 												@foreach($tickets as $ticket)
 												@if($guest->id == $ticket->guest_id)
-													@if(floor($ticket->ticket_no / 10) == 0)
-														000{{ $ticket->ticket_no }}
-													@elseif (floor($ticket->ticket_no / 100) == 0)
-														00{{ $ticket->ticket_no }}
-													@elseif (floor($ticket->ticket_no / 1000) == 0)
-														0{{ $ticket->ticket_no }}
-													@else
-														{{ $ticket->ticket_no }}
-													@endif
+												@if(floor($ticket->ticket_no / 10) == 0)
+												000{{ $ticket->ticket_no }}
+												@elseif (floor($ticket->ticket_no / 100) == 0)
+												00{{ $ticket->ticket_no }}
+												@elseif (floor($ticket->ticket_no / 1000) == 0)
+												0{{ $ticket->ticket_no }}
+												@else
+												{{ $ticket->ticket_no }}
+												@endif
 												@endif
 												@endforeach
 											</td>
 											<td>
 												@foreach($jubi_years as $jubi_year)
 												@if ($guest->batch_year == $jubi_year)
-													Jubilarian **
-													@endif
+												Jubilarian **
+												@endif
 												@endforeach
 												{{ $guest->batch_year }}
 											</td>

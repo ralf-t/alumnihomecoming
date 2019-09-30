@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Guest;
 use App\Ticket;
 use Carbon\Carbon;
+use App\Exports\GuestsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class IndexController extends Controller
 {
@@ -101,6 +103,12 @@ class IndexController extends Controller
 				'response' => $response,
 			]);
 		}
+	}
+
+	public function report() {
+		$timestamp = Carbon::now('+8:00');
+
+		return Excel::download(new GuestsExport, 'Alumni Homecoming Grand Reunion Guests Information ' . $timestamp . '.xlsx');
 	}
 
 	public function validation($ticket) {

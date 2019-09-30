@@ -40,5 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('ticket/{ticket}', 'IndexController@guest_id');
 
+	Route::get('export', 'IndexController@report');
+
 	Route::resource('guests', 'GuestController');
 });
