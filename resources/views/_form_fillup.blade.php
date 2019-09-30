@@ -4,7 +4,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text">Ticket Number</span>
 			</div>
-			<input type="text" class="form-control" id="ticket" name="ticket_no" @if(Request::is('fillup/*')) value="{{ $ticket->ticket_no }}" disabled @endif required>
+			<input type="text" class="form-control" id="ticket" name="ticket_no" @if(Request::is('fillup/*')) value="{{ $ticket->ticket_no }}"  @endif required>
 		</div>
 	</div>
 	<div>
@@ -20,7 +20,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Family Name</span>
 					</div>
-					<input type="text" class="form-control" id="lastname" name="last_name" @if(Request::is('fillup/*')) value="{{ $guest->last_name }}" @endif disabled>
+					<input type="text" class="form-control" id="lastname" name="last_name" @if(Request::is('fillup/*')) value="{{ $guest->last_name }}" @endif>
 				</div>
 			</div>
 			<div class="col-5 px-1">
@@ -28,7 +28,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Given Name</span>
 					</div>
-					<input type="text" class="form-control" id="firstname" name="first_name" @if(Request::is('fillup/*')) value="{{ $guest->first_name }}" @endif disabled>
+					<input type="text" class="form-control" id="firstname" name="first_name" @if(Request::is('fillup/*')) value="{{ $guest->first_name }}" @endif>
 				</div>
 			</div>
 			<div class="col-3 pl-1">
@@ -36,7 +36,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Middle Name</span>
 					</div>
-					<input type="text" class="form-control" id="middlename" name="middle_name" @if(Request::is('fillup/*')) value="{{ $guest->middle_name ?? '' }}" @endif disabled>
+					<input type="text" class="form-control" id="middlename" name="middle_name" @if(Request::is('fillup/*')) value="{{ $guest->middle_name ?? '' }}" @endif>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Year Graduated</span>
 					</div>
-					<input type="text" class="form-control" id="year_graduated" name="year_graduated" @if(Request::is('fillup/*')) value="{{ $guest->batch_year }}" @endif disabled>
+					<input type="text" class="form-control" id="year_graduated" name="year_graduated" @if(Request::is('fillup/*')) value="{{ $guest->batch_year }}" @endif>
 				</div>
 			</div>
 		</div>

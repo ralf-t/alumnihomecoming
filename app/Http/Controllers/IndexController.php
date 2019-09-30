@@ -14,18 +14,71 @@ class IndexController extends Controller
 		return view('register');
 	}
 
-	public function dashboard() {
+	public function dashboard(Request $request) {
+		$page = 0;
 		$jubi_years = [1949, 1959, 1969, 1979, 1989, 1954, 1964, 1974, 1984, 1994];
-		$guests = Guest::orderBy('updated_at', 'desc')->paginate(10);
+		$platinum = Guest::where('batch_year', '=', 1949)->get();
+		$blue_sapphire = Guest::where('batch_year', '=', 1954)->get();
+		$diamond = Guest::where('batch_year', '=', 1959)->get();
+		$emerald = Guest::where('batch_year', '=', 1964)->get();
+		$gold = Guest::where('batch_year', '=', 1969)->get();
+		$sapphire = Guest::where('batch_year', '=', 1974)->get();
+		$ruby = Guest::where('batch_year', '=', 1979)->get();
+		$coral = Guest::where('batch_year', '=', 1984)->get();
+		$pearl = Guest::where('batch_year', '=', 1989)->get();
+		$silver = Guest::where('batch_year', '=', 1994)->get();
+		if ($request->search) {
+			$guests = Guest::where('first_name', 'LIKE', '%' . $request->search . '%')
+			->orWhere('last_name', 'LIKE', '%' . $request->search . '%')
+			->orWhere('middle_name', 'LIKE', '%' . $request->search . '%')
+			->orWhere('batch_year', 'LIKE', '%' . $request->search . '%')
+			->orWhere('degree', 'LIKE', '%' . $request->search . '%')
+			->orWhere('honors', 'LIKE', '%' . $request->search . '%')
+			->orWhere('profession', 'LIKE', '%' . $request->search . '%')
+			->orWhere('company_org', 'LIKE', '%' . $request->search . '%')
+			->orWhere('address', 'LIKE', '%' . $request->search . '%')
+			->orWhere('residence', 'LIKE', '%' . $request->search . '%')
+			->orWhere('telephone', 'LIKE', '%' . $request->search . '%')
+			->orWhere('cellphone', 'LIKE', '%' . $request->search . '%')
+			->orWhere('email', 'LIKE', '%' . $request->search . '%')
+			->get();
+			$page ++;
+		} else {
+			$guests = Guest::orderBy('updated_at', 'desc')->paginate(10);
+		}
 		$total = Guest::all();
 		$jubilarians = Guest::whereIn('batch_year', $jubi_years)->get();
 		$tickets = Ticket::all();
+//		$prefix = "";
+//		foreach ($tickets as $ticket) {
+//			sprintf('%04d' ,$ticket->ticket_no);
+//			if (floor($ticket->ticket_no / 10) == 0) {
+//				$prefix = "000";
+//			} else if (floor($ticket->ticket_no / 100) == 0) {
+//				$prefix = "00";
+//			} else if (floor($ticket->ticket_no / 1000) == 0) {
+//				$prefix = "0";
+//			}
+//			$ticket->ticket_no = $prefix + (string)$ticket->ticket_no;
+//		}
 		return view('dashboard', [
 			'guests' => $guests,
 			'tickets' => $tickets,
 			'total' => $total,
+			'request' => $request,
+			'page' => $page,
 			'jubilarians' => $jubilarians,
 			'jubi_years' => $jubi_years,
+			'platinum' => $platinum,
+			'blue_sapphire' => $blue_sapphire,
+			'diamond' => $diamond,
+			'emerald' => $emerald,
+			'gold' => $gold,
+			'sapphire' => $sapphire,
+			'ruby' => $ruby,
+			'coral' => $coral,
+			'pearl' => $pearl,
+			'silver' => $silver,
 		]);
 	}
 
