@@ -14,8 +14,8 @@
 						<div class="col-11 mt-3">
 							<div class="clearfix">
 								<h3 class="mt-2 float-left">Overall Registered: {{ count($total) }}</h3>
-								<a class="btn btn-danger float-right ml-2" href="{{ url('logout') }}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
-								<a href="{{ url('export') }}" class="btn btn-success float-right"><i class="fas fa-file-excel mr-2"></i>Export</a>
+								<a class="btn btn-danger float-right ml-2" title="Logout" href="{{ url('logout') }}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+								<a href="{{ url('export') }}" title="Generate Excel Report" class="btn btn-success float-right"><i class="fas fa-file-excel mr-2"></i>Export</a>
 							</div>
 							<h3 class="mt-2">Jubilarians: {{ count($jubilarians) }}</h3>
 							<table id="jubilarians">
@@ -58,16 +58,17 @@
 									</td>
 								</tr>
 							</table>
-							<div class="my-2">
-								<form method="POST">
+							<div class="my-2 clearfix">
+								<form method="POST" class="w-75 float-left">
 									{{ csrf_field() }}
-									<div class="input-group w-75">
+									<div class="input-group w-100">
 										<input type="search" value="{{ $request->search }}" class="form-control" name="search" placeholder="Search">
 										<div class="input-group-append">
 											<button class="btn btn-success" type="submit" title="search"><i class="fas fa-search"></i></button>
 										</div>
 									</div>
 								</form>
+								<a class="btn btn-primary float-right" title="Search by Ticket" href="{{ url('fillup') }}"><i class="fas fa-ticket-alt mr-2"></i>Search Ticket</a>
 							</div>
 							<div class="table-responsive text-nowarp">
 								<table class="table-hover table">
