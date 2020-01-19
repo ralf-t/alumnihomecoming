@@ -14,7 +14,7 @@ function Confirm() {
 			data: {"last_name":lastname, "first_name":firstname, "middle_name":middlename, "ticket_no":ticket, "batch_year":batch},
 			dataType: 'JSON',
 			succes: function(response) {
-				if (response.success) {
+				if (response.status == 'success') {
 					Swal.fire({
 						type: 'success',
 						title: 'Successfully registered.',
@@ -24,7 +24,7 @@ function Confirm() {
 					Swal.fire({
 						type: 'error',
 						title: 'Something went wrong in the server. Please try registering again.',
-						showConfirmButton: 'Refresh',
+						confirmButtonText: 'Refresh',
 					});
 				}
 			},

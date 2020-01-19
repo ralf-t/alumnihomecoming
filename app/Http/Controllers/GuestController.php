@@ -66,7 +66,7 @@ class GuestController extends Controller
         $ticket->save();
         
         return response()->json([
-            'status' => 'success'
+            'status' => 'success',
         ]);
     }
 
