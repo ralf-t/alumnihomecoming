@@ -20,7 +20,7 @@ class AddDefaultValueForUsers extends Migration
             'first_name' => 'R&D',
             'last_name' => 'Unit',
             'username' => 'rndunit',
-            'password' => 'ccssrnd2008',
+            'password' => 'rndccss2008',
             'type' => 'ADMIN',
         ]);
 

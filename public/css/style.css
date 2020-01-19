@@ -1,6 +1,6 @@
 html, body {
-	background-color: black;
 	background: url('../img/Background.png');
+	background-color: black;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;

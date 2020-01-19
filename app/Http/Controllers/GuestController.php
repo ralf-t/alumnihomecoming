@@ -64,12 +64,10 @@ class GuestController extends Controller
         $ticket->guest_id = $guest->id;
 
         $ticket->save();
-
-        // $ticket_array = explode(',', $request->ticket_no);
-        // return $ticket_array;
-
-        // $ticket->ticket_no
-        return redirect('/');
+        
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 
     /**

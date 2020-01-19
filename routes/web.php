@@ -18,6 +18,7 @@ Route::get('login', 'IndexController@login')->name('login');
 Route::post('login', 'LoginController@login');
 
 Route::get('logout', 'LoginController@logout');
+Route::get('validation/{ticket}', 'IndexController@validation');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('dashboard', 'IndexController@dashboard');
@@ -29,7 +30,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('fillup/{id}', 'GuestController@edit');
 	Route::post('fillup/{id}', 'GuestController@update');
 
-	Route::get('validation/{ticket}', 'IndexController@validation');
 
 	Route::get('guests', 'GuestController@index');
 	Route::post('guests', 'GuestController@index');

@@ -5,3 +5,11 @@
 #ex {
 	color: red;
 }
+
+#jubilarians td {
+	width: 150px;
+}
+
+#jubilarians td div {
+	margin-right: 10px;
+}

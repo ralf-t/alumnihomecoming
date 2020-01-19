@@ -1,4 +1,4 @@
-<form method="POST" onsubmit="return Confirm()">
+<form>
 	{{ csrf_field() }}
 	<div class="container-fluid px-0">
 		<div class="row justify-content-center">

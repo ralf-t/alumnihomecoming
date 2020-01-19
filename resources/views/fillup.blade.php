@@ -11,6 +11,7 @@
 		<div class="col-12 col-md-10 col-lg-10">
 			<div class="card z-depth-3">
 				<div class="card-body">
+					<a href="{{ url('/dashboard') }}" class="btn btn-light"><i class="fas fa-chevron-left mr-2"></i>Back</a>
 					<h4 class="card-title mb-3">Fill Up Info Card</h4>
 					@include('_form_fillup')
 				</div>

@@ -1,15 +1,5 @@
 * {
   color: #e74c3c;
-}
-
-html, body {
-  background: url('../img/Background.png');
-  background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  max-height: 100vh;
-  background-size: contain;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -41,6 +31,7 @@ label {
   text-transform: uppercase;
   color: #2c3e50;
   font-weight: 600;
+  margin-bottom: 0; 
 }
 
 button {
@@ -56,7 +47,6 @@ button {
   text-transform: uppercase;
   margin-bottom: 10px;
   height: 50px;
-
 }
 
 .custom-select {
@@ -64,7 +54,6 @@ button {
   border-bottom: 2px solid #2d3436;
   font-size: 150%;
   font-weight: 200;
-
 }
 
 option {
@@ -86,20 +75,15 @@ option {
   font-weight: 200;
 }
 
-a#submit {
+#submit {
   color: #ecf0f1;
-}
-
-.reg{
   background-color: #b33939;
   border-radius: 0 0 14px 14px;
-  color: #ecf0f1;
   font-size: 150%;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.reg:hover{
-  color: #ecf0f1;
+#submit:hover{
   background-color: #8f3030;
 }
