@@ -8,7 +8,7 @@
 <div class="container px-0">
 	<div class="row justify-content-center">
 		<div class="col-12">
-			<div class="card z-depth-3 mt-4">
+			<div class="card z-depth-3 my-4">
 				<div class="container px-0">
 					<div class="row justify-content-center">
 						<div class="col-11 mt-3">
